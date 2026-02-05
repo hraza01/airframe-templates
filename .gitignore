@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environments
+venv/
+.venv/
+env/
+.env
+
+# IDEs
+.vscode/
+.idea/
+
+# macOS
+.DS_Store
+
+# Airflow
+logs/
+airflow.db
+airflow.cfg
+unittests.cfg
+
+# Testing
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Formatters
+.ruff_cache/
+**.log
+

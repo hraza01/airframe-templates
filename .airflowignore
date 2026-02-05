@@ -1,0 +1,26 @@
+# Use Regex syntax for .airflowignore
+
+# Escape dots with backslash \. to match a literal dot
+\.git/
+\.github/
+
+# Match __pycache__ anywhere
+.*__pycache__/.*
+
+# Ignore compiled python files (match end of string $)
+.*\.pyc$
+.*\.pyo$
+
+# Ignore config files
+\.gitignore
+\.gitmodules
+pyproject.toml
+
+# Ignore all markdown files (.* matches any char, \.md matches extension)
+.*\.md$
+
+# Ignore ruff cache
+\.ruff_cache/
+
+# Ignore pre-commit config
+\.pre-commit-config.yaml
