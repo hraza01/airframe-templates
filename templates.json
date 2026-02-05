@@ -1,0 +1,22 @@
+[
+    {
+        "value": "basic",
+        "label": "Basic",
+        "description": "A standard linear pipeline running raw SQL queries."
+    },
+    {
+        "value": "starter",
+        "label": "Starter",
+        "description": "Scaffold a DAG with linear dependencies via SQL queries and Jinja2 templating."
+    },
+    {
+        "value": "advanced",
+        "label": "Advanced",
+        "description": "Scaffold a DAG with advanced Airflow concepts and software engineering best practices. Includes External APIs, XCOMs, ShortCircuitOperator, BigQuery Jobs, Jinja2 templating, and more."
+    },
+    {
+        "value": "barebones",
+        "label": "Barebones",
+        "description": "Minimal scaffold. Just the directory structure and empty config files."
+    }
+]
