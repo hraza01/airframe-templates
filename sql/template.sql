@@ -1,9 +1,11 @@
--- Template SQL that uses API response data from call_external_api task
--- The api_response is passed via params and contains the API call result
+{% set api_response = task_instance.xcom_pull(task_ids=params.upstream_task_id) %}
 
-SELECT STRUCT(
-  {{ params.api_response.data.userId }} AS user_id,
-  {{ params.api_response.data.id }} AS id,
-  '{{ params.api_response.data.title }}' AS title,
-  '{{ params.api_response.data.body }}' AS body
-) AS response
+select struct(
+           {{ api_response.data.userId }} as user_id,
+           {{ api_response.data.id }} as id,
+           '{{ api_response.data.title | replace("\n", " ") }}' as title,
+           '{{ api_response.data.body | replace("\n", " ") }}' as body
+       ) as response
+     , '{{ api_response.message }}' as message
+     , '{{ api_response.status }}' as status
+     , '{{ api_response.status_code }}' as status_code

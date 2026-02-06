@@ -52,7 +52,6 @@ def call_external_api(api_url: str) -> dict:
     return result
 
 
-@task
 def validate_api_response(**context) -> bool:
     """
     Checks if API call was successful (status_code == 200).

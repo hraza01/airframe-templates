@@ -24,3 +24,6 @@ pyproject.toml
 
 # Ignore pre-commit config
 \.pre-commit-config.yaml
+
+# Ignore Makefile
+Makefile

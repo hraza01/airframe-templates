@@ -6,8 +6,12 @@ from airflow import DAG
 from airflow.operators.python import ShortCircuitOperator
 from airflow.providers.google.cloud.operators.bigquery import BigQueryInsertJobOperator
 
-from tasks import call_external_api, validate_api_response
-from utils import load_config, load_workflow_md
+# fmt: off
+# isort: off
+from __PROJECT_NAME__.tasks import call_external_api, validate_api_response
+from __PROJECT_NAME__.utils import load_config, load_workflow_md
+# isort: on
+# fmt: on
 
 
 def main():
@@ -28,6 +32,7 @@ def main():
         "params": dict(params),
         "catchup": False,
         "is_paused_upon_creation": True,
+        "render_template_as_native_obj": True,
         "default_args": {
             "start_date": pendulum.datetime(2022, 6, 12, tz="UTC"),
             "owner": "__DAG_AUTHOR__",
@@ -76,8 +81,8 @@ def create_dag(dag_args):
                     "useLegacySql": False,
                 }
             },
-            # Pass API response from call_external_api to the SQL template
-            params={"api_response": "{{ task_instance.xcom_pull(task_ids='call_external_api') }}"},
+            # Pass upstream task ID to allow SQL template to pull XCom data
+            params={"upstream_task_id": "call_external_api"},
         )
 
         # Set task dependencies
