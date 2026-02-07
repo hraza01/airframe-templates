@@ -1,4 +1,4 @@
-# Barebones Template
+## Airframe (Barebones) | An Airflow DAG Template
 
 A barebones template for Airflow DAGs.
 

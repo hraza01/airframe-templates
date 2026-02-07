@@ -15,8 +15,6 @@ from __PROJECT_NAME__.utils import load_config, load_workflow_md
 def main():
     wop_stage = os.environ["WOP_STAGE"]
     params = load_config(wop_stage)
-    params["wop_stage"] = wop_stage
-
     doc_md = load_workflow_md()
 
     dag_args = {
@@ -35,7 +33,7 @@ def main():
         "default_args": {
             "start_date": pendulum.datetime(2025, 6, 12, tz="UTC"),
             "owner": "__DAG_AUTHOR__",
-            "email": params["email_recipients"],
+            # "email": params["email_recipients"], # You can set it up in config/<env>.yaml
             "depends_on_past": False,
             "retries": 2,
             "retry_delay": pendulum.duration(minutes=1),

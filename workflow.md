@@ -1,4 +1,4 @@
-## Airframe | An Airflow DAG Template
+## Airframe (Barebones) | An Airflow DAG Template
 
 ### Overview
 
