@@ -34,7 +34,25 @@ def load_config(wop_stage: str) -> dict:
     import yaml
 
     dag_file = Path(__file__)
-    file_yaml = f"config/{wop_stage}.yaml"
+    config_dir = dag_file.parent / "config"
 
-    with open(dag_file.parent / file_yaml) as f:
-        return yaml.safe_load(f)
+    # Define possible filenames for each stage
+    stage_mapping = {
+        "dev": ["dev.yaml", "development.yaml"],
+        "prod": ["prod.yaml", "production.yaml"],
+    }
+
+    # Get list of files to check, defaulting to just the stage name
+    files_to_check = stage_mapping.get(wop_stage, [f"{wop_stage}.yaml"])
+
+    for filename in files_to_check:
+        file_path = config_dir / filename
+        if file_path.exists():
+            with open(file_path) as f:
+                return yaml.safe_load(f)
+
+    # If no file found, raise error
+    raise FileNotFoundError(
+        f"Could not find configuration file for stage '{wop_stage}'. "
+        f"Checked: {', '.join(files_to_check)}"
+    )
