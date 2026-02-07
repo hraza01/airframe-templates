@@ -17,15 +17,13 @@ from __PROJECT_NAME__.utils import load_config, load_workflow_md
 def main():
     wop_stage = os.environ["WOP_STAGE"]
     params = load_config(wop_stage)
-    params["wop_stage"] = wop_stage
-
     doc_md = load_workflow_md()
 
     dag_args = {
         # DAG
         "dag_id": Path(__file__).parent.name,
         # "schedule_interval": "0 0 * * 1",  # Every Monday at 00:00
-        "schedule_interval": None,
+        "schedule_interval": None,  # Manually triggered
         "doc_md": doc_md,
         "max_active_runs": 1,
         "dagrun_timeout": pendulum.duration(minutes=59),
