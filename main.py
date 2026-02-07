@@ -22,7 +22,8 @@ def main():
     dag_args = {
         # DAG
         "dag_id": Path(__file__).parent.name,
-        "schedule_interval": "0 0 * * 1",  # Every Monday at 00:00
+        # "schedule_interval": "0 0 * * 1",  # Every Monday at 00:00
+        "schedule_interval": None,  # Manually triggered
         "doc_md": doc_md,
         "max_active_runs": 1,
         "dagrun_timeout": pendulum.duration(minutes=59),
@@ -32,7 +33,7 @@ def main():
         "is_paused_upon_creation": True,
         "render_template_as_native_obj": True,
         "default_args": {
-            "start_date": pendulum.datetime(2022, 6, 12, tz="UTC"),
+            "start_date": pendulum.datetime(2025, 6, 12, tz="UTC"),
             "owner": "__DAG_AUTHOR__",
             "email": params["email_recipients"],
             "depends_on_past": False,

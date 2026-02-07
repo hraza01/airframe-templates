@@ -1,4 +1,4 @@
-# Basic DAG
+# Starter Template
 
 A simplified Airflow DAG template for BigQuery jobs.
 
