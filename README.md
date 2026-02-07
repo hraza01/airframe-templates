@@ -1,11 +1,10 @@
-# Starter Template
+# Barebones Template
 
-A simplified Airflow DAG template for BigQuery jobs.
+A barebones template for Airflow DAGs.
 
 ## Features
 
 - **Environment-based Configuration**: Automatically loads configuration from `config/{env}.yaml`, supporting `dev.yaml`/`development.yaml` and `prod.yaml`/`production.yaml`.
-- **SQL Execution**: Executes external SQL files from the `sql/` directory.
 
 ## Configuration
 

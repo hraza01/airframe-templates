@@ -6,5 +6,3 @@
 # my_key: my_value
 
 WOP_STAGE: dev
-
-email_recipients: ["john.doe@example.com", "jane.doe@example.com"]

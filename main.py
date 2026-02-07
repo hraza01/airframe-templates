@@ -3,7 +3,7 @@ from pathlib import Path
 
 import pendulum
 from airflow import DAG
-from airflow.providers.google.cloud.operators.bigquery import BigQueryInsertJobOperator
+from airflow.operators.empty import EmptyOperator
 
 # fmt: off
 # isort: off
@@ -53,28 +53,9 @@ def create_dag(dag_args):
         No logic outside of tasks(operators) or they are constantly run by scheduler
         """
 
-        first_sql_task = BigQueryInsertJobOperator(
-            task_id="first_sql_task",
-            configuration={
-                "query": {
-                    "query": "{% include '/sql/example.sql' %}",
-                    "useLegacySql": False,
-                }
-            },
-        )
+        task = EmptyOperator(task_id="task")
 
-        second_sql_task = BigQueryInsertJobOperator(
-            task_id="second_sql_task",
-            configuration={
-                "query": {
-                    "query": "{% include '/sql/example-two.sql' %}",
-                    "useLegacySql": False,
-                }
-            },
-        )
-
-        # Set task dependencies
-        first_sql_task >> second_sql_task
+        task
 
     globals()[dag.dag_id] = dag
 
