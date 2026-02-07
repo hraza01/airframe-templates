@@ -1,26 +1,26 @@
 [
     {
-        "value": "basic",
-        "label": "Basic",
-        "description": "A standard linear pipeline running raw SQL queries.",
-        "hint": "I'm a beginner."
-    },
-    {
         "value": "starter",
         "label": "Starter",
-        "description": "Scaffold a DAG with linear dependencies via SQL queries and Jinja2 templating.",
-        "hint": "I'm learning."
+        "description": "A simple Airflow data pipeline with SQL task dependencies.",
+        "hint": "I'm a beginner"
+    },
+    {
+        "value": "standard",
+        "label": "Standard",
+        "description": "A more complex Airflow data pipeline with SQL task dependencies and Jinja templating.",
+        "hint": "I'm learning"
     },
     {
         "value": "advanced",
         "label": "Advanced",
-        "description": "Scaffold a DAG with advanced Airflow concepts and software engineering best practices. Includes External APIs, XCOMs, ShortCircuitOperator, BigQuery Jobs, Jinja2 templating, and more.",
-        "hint": "I'm up for the challenge."
+        "description": "An advanced Airflow pipeline with industry-standard software engineering best practices bundled with latest developer tooling, git hooks, and minimal CI/CD setup. Includes additional Airflow operator examples, external APIs, XCOMs, BigQuery Jobs, Jinja templating, and more.",
+        "hint": "I'm up for the challenge"
     },
     {
         "value": "barebones",
         "label": "Barebones",
         "description": "Minimal scaffold. Just the directory structure and empty config files.",
-        "hint": "I know what I'm doing."
+        "hint": "I know what I'm doing"
     }
 ]
