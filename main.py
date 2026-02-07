@@ -15,8 +15,6 @@ from __PROJECT_NAME__.utils import load_config, load_workflow_md
 def main():
     wop_stage = os.environ["WOP_STAGE"]
     params = load_config(wop_stage)
-    params["wop_stage"] = wop_stage
-
     doc_md = load_workflow_md()
 
     dag_args = {

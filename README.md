@@ -1,4 +1,4 @@
-# Starter Template
+## Airframe (Starter) | An Airflow DAG Template
 
 A simplified Airflow DAG template for BigQuery jobs.
 
